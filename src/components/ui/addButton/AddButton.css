@@ -1,0 +1,38 @@
+.addNewButton{
+    position: fixed;
+    bottom: 50px;
+    right: 50px;
+    background-color: lightpink;
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.6rem;
+}
+.addNewButton-mouse{
+    position: fixed;
+    bottom: 50px;
+    right: 50px;
+    background-color: lightpink;
+    width: 350px;
+    height: 64px;
+    border-radius: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.6rem;
+    animation: mousePass 1s ease-in;
+}
+.addNewButton-mouse:hover{
+    cursor: pointer;
+}
+@keyframes mousePass{
+    0%{
+        right: -250px;
+    }
+    100%{
+        right: 50px;
+    }
+}

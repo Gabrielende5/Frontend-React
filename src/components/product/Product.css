@@ -1,0 +1,28 @@
+.product-card {
+    width: 368px;
+    background-color: #f2e9e4;
+    padding: 10px;
+    margin: 10px;
+    position: relative;
+    border-radius: 16px;
+}
+
+.product-card:hover {
+    box-shadow: 3px 3px 1px 3px #c9ada7;
+}
+
+.Productslist {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+#icons {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}
+
+#icons:hover {
+    cursor: pointer;
+}
