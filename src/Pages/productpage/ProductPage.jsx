@@ -5,7 +5,7 @@ import Modal from "../../components/modal/Modal";
 import { useState } from "react";
 import axios from "axios";
 import Product from "../../components/product/Product";
-function Products() {
+function ProductPage() {
   const [showModal, setShowModal] = useState(false);
   const [editingProduct, setEditingProduct] = useState(null);
   const [products, setProducts] = useState([]);
@@ -109,4 +109,4 @@ function Products() {
   );
 }
 
-export default Products;
+export default ProductPage;
