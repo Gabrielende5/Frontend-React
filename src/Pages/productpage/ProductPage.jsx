@@ -1,3 +1,6 @@
+
+// Variaveis de ambiente -+
+
 // Função de consumir API do backend no frontend
 import React, { useEffect } from "react";
 import AddButton from "../../components/ui/addButton/AddButton";
@@ -29,7 +32,7 @@ function ProductPage() {
       .then((res) => {
         // console.log(res)
         // console.log(res.data)
-        setProducts([...products, res.data.data]);
+        setProducts([...products, res.data.data]); // Confirma que criou um novo produto
         // pegarTodasAsProductsDaApi()
       })
       .catch((err) => console.log("erro ao pegar os dados da api", err));
@@ -40,7 +43,7 @@ function ProductPage() {
       .then((res) => {
         // console.log(res)
         // console.log(res.data)
-        setProducts(products.filter((n) => n._id !== id));
+        setProducts(products.filter((n) => n._id !== id)); // Confirma se está deletando o "id" correto, resumidamente ele pega o que está mexendo (n), acessa o id desse "n" e verifica se ele é diferente dos outros id's (id) do site para poder deletar apenas esse id do "n"
         // pegarTodasAsProductsDaApi()
       })
       .catch((err) => console.log("erro ao pegar os dados da api", err));
@@ -69,11 +72,11 @@ function ProductPage() {
   };
 
   useEffect(() => {
-    pegarTodasAsProductsDaApi();
+    pegarTodasAsProductsDaApi(); // mostra tudo na tela sem precisa atualizar a pagina
     // editProduct(1,"batatadoce","editado")
   }, []);
   const mudarModal = () => {
-    setShowModal((state) => !state);
+    setShowModal((state) => !state); // Inverte o estado do "setShowModal", estando padrão "false" e ao clicar irá mudar para "true"
   };
 
   // function fecharOModal(){
