@@ -1,0 +1,18 @@
+#card{
+    color: aliceblue;
+    border: 1px solid white;
+    width: 256px;
+    position: relative;
+    text-align: center;
+}
+#comida-card{
+    width: 368px;
+    background-color: white;
+    padding: 10px;
+    margin: 10px;
+    position: absolute;
+    border-radius: 16px;
+}
+#comida-card:hover{
+    box-shadow: 3px 3px 1px 3px #c9ada7;
+}
