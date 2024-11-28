@@ -3,9 +3,10 @@ import { AiTwotoneEdit, AiFillDelete} from "react-icons/ai";
 import "./ComidaCard.css";
 
 function ComidaCard({comida, setEditMode, deleteComida}){
+    
     const{name, description, nota, id} = comida;
     return (
-        <div id='card' className="music-card">
+        <div id='card' className="comida-card">
             <h1>{name}</h1>
             <div>{description} Descrição</div>
             <div>{nota} Nota</div>

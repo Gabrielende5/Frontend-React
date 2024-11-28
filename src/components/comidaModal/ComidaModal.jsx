@@ -16,4 +16,5 @@ function comidaModal(props){
         </div>
     )
 }
+
 export default comidaModal;

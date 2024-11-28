@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import "../form/Form.css"
-function MusicForm(props){
+function ComidaForm(props){
     const[name, setNome] = useState(""); // 
     const[description, setDescription] = useState("");
     const[nota, setNota]= useState(0);
@@ -44,4 +44,4 @@ function MusicForm(props){
         </div>
     )
 }
-export default MusicForm;
+export default ComidaForm;
