@@ -1,0 +1,25 @@
+table{
+    color: white;
+    height: 400px;
+    overflow-y: scroll; 
+        /* Esconde a barrinha de scroll da direita da tela */
+    
+}
+.pokemon{
+    color: white;
+}
+
+.pokemon-info{
+    width: 320px;
+    border: 2px solid red;
+    height: 80%;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+}
+
+.pokemon-info img{
+    width: 128px;
+}
