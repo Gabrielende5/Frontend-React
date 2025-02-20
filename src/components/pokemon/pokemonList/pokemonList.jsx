@@ -1,14 +1,18 @@
 import axios from "axios";
-import { UsePokemons } from "../../../hooks/pokemons/UsePokemons";
 import { useState } from "react";
 import './PokemonList.css'
+
+import { UsePokemons } from "../../../hooks/pokemons/UsePokemons";
 import PokemonModal from "../pokemonModal/PokemonModal.jsx"
+import usePokemonStore from "../../../store/UsePokemonStore.jsx";
+import React from"react";
 
 const PokemonList =() =>{
     const{loading, error, data:pokemons} = UsePokemons();
         // tipo "UseContext" (usando apenas o método que ele faz e não propriamente ele, por conta que são poucas propriedades), sendo usando para chamar propriedades (props) sem precisar expandir muito o código
     const[selectedPokemon, setSelectedPokemon] = useState(null);
     const[modalVisible, setModalVisible] = useState(false);
+    const{selectedPokemons, togglePokemon} = usePokemonStore();
     
     if(loading){
         return<div>Loading...</div>;
@@ -37,21 +41,29 @@ const PokemonList =() =>{
                     <tr>
                         <th>ID</th>
                         <th>Nome</th>
+                        <th>Selecionar</th>
                     </tr>
                 </thead>
-                <tbody>
-                    {pokemons.map((pokemon)=>(
-                        <tr
-                        key={pokemon.name}
-                        onClick={()=>fetchPokemonDetails(extractIdFromUrl(pokemon.url))}
-                        // Extrai pela URL por conta que a API só mostra o ID pela URL
-                        style={{cursor:'pointer'}}
-                        >
-                            <td>{extractIdFromUrl(pokemon.url)}</td>
-                            <td>{pokemon.name}</td>
+                <tbody data-testid="pokemons-list">
+                {pokemons && pokemons.length> 0 && pokemons.map((pokemon)=>{
+                    const id = extractIdFromUrl (pokemon.url); 
+                    const isSelected = selectedPokemons.some((p)=> p.id ===id);
+                    return(<tr data-testid={`pokemon-${id}`} key={pokemon.id} style={{cursor:"pointer"}}><td>
+                        {id}
+                        </td> <td data-testid={`pokemon${id}-name`} onClick={() => fetchPokemonDetails(id)}>{pokemon.name}</td>
+                        <td>
+                        <input type="checkbox" checked={isSelected}onChange={(e) => {
+                        e.stopPropagation(); 
+                        togglePokemon({id,name:pokemon.name});
+                    }}>
+                        </input>
+                        </td>
                         </tr>
-                    ))}
+                        );
+                })}
                 </tbody>
+                {/* onClick={()=>fetchPokemonDetails(extractIdFromUrl(pokemon.url))}
+                // Extrai pela URL por conta que a API só mostra o ID pela URL */}
             </table>
             {modalVisible&&(
                 <PokemonModal
