@@ -1,0 +1,18 @@
+#auth-page {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    overflow-x: hidden;
+}
+
+.navigate-link {
+    color: rgba(255, 255, 255, 0.558);
+    font-weight: bold;
+}
+
+.navigate-link:hover {
+    color: rgba(255, 255, 255, 0.738);
+    cursor: pointer;
+}

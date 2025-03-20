@@ -5,6 +5,7 @@ import HomePage from "./Pages/homepage/HomePage.jsx";
 import Comidas from "./Pages/comidaPage/comidaPage.jsx";
 import PokemonPage from "./Pages/pokemonPage/PokemonPage.jsx"
 import ChatPage from "./Pages/chatPage/ChatPage.jsx";
+import AuthPage from "./Pages/authPage/AuthPage.jsx";
 
 export const router = createBrowserRouter([
     {
@@ -30,6 +31,10 @@ export const router = createBrowserRouter([
             {
                 path: "/chat",
                 element:<ChatPage/>
+            },
+            {
+                path: "/auth",
+                element: <AuthPage/>
             }
         ]
         }

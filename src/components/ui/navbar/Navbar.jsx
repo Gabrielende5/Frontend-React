@@ -10,6 +10,7 @@ function Navbar (){
             <Link to="/comidas">Comidas</Link>
             <Link to="/pokemons">Pokemon</Link>
             <Link to='/chat'>Chat</Link>
+            <Link to='/auth'>Chat</Link>
         </nav>
     )
 }
