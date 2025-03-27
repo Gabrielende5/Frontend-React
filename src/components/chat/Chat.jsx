@@ -78,7 +78,7 @@ export default function Chat({ socket }) { // tudo que estiver recebendo do back
 
     const scrollDown = () => {
         if (bottomRef.current) {
-            bottomRef.current.scrollIntoView({ behavior: "smooth" });
+            bottomRef.current.scrollIntoView({ behavior: "smooth", block:"end", inline:"nearest" });
         }
     };
 

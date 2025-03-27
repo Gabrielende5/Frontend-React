@@ -15,7 +15,7 @@ function RegisterForm(props) {
 
     // Função para validar o nome
     const validateName = () => {
-        if (user.name.length < 4) {
+        if (user.name.length < 4 || user.name.charAt(0) !== user.name.charAt(0).toUpperCase) { //  Verifica se tem mais de 4 letras o nome e se inicia em maisculo 
             return "Nome precisa ter mais de 3 letras.";
         }
     };

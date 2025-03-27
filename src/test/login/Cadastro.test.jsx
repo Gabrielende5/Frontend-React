@@ -86,9 +86,54 @@ describe("Componente RegisterForm",()=>{
         render(<RegisterForm onSubmitForm={jest.fn()} />);
 
         const nameInput = screen.getByTestId("name-input");
+        const botaoSubmit = screen.getByTestId("submit-button");
         fireEvent.change(nameInput, { target: { value: "Yan" } });
 
+        fireEvent.click(botaoSubmit);
         expect(screen.getByTestId("error-name")).toHaveTextContent("Nome precisa ter mais de 3 letras");
     });
+
+    test("mostrar mensagem de erro para email inválido", () => {
+        render(<RegisterForm onSubmitForm={jest.fn()} />);
+
+        fireEvent.change(screen.getByTestId("email-input"),{target:{value:"invalid-email"}})
+        fireEvent.click(screen.getByTestId("submit-button"));
+
+        expect(screen.getByTestId("error-email")).toHaveTextContent("Email inválido");
+    });
+
+    test("mostrar mensagem de erro para idade inválido", () => {
+        render(<RegisterForm onSubmitForm={jest.fn()} />);
+
+        fireEvent.change(screen.getByTestId("idade-input"),{target:{value:"15"}})
+        fireEvent.click(screen.getByTestId("submit-button"));
+
+        expect(screen.getByTestId("error-idade")).toHaveTextContent("Idade precisa ser maior que 16.");
+    });
+
+    test("mostrar mensagem de erro para senha inválido", () => {
+        render(<RegisterForm onSubmitForm={jest.fn()} />);
+
+        fireEvent.change(screen.getByTestId("password-input"),{target:{value:"pass"}})
+        fireEvent.click(screen.getByTestId("submit-button"));
+
+        expect(screen.getByTestId("error-password")).toHaveTextContent("Senha precisa ter mais de 6 letras, um número e um caractere especial.");
+    });
+
+    test("mostrar mensagem de erro para email inválido", () => {
+        render(<RegisterForm onSubmitForm={jest.fn()} />);
+
+        fireEvent.change(screen.getByTestId("password-input"),{target:{value:"Password123!"}})
+        fireEvent.change(screen.getByTestId("confirmPassword-input"),{target:{value:"Password123"}})
+
+        fireEvent.click(screen.getByTestId("submit-button"));
+
+        expect(screen.getByTestId("error-confirmPassword")).toHaveTextContent("As senhas não coincidem.");
+    });
+
+
+
+
+
 
 })
