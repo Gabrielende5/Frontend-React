@@ -21,10 +21,16 @@ function Join({setChatVisibility, setSocket}) {
     <div className='join-container'>
         <h2 className='join-title'> Chat em tempo real</h2>
         <div className='join-input-container'>
-            <input type="text" placeholder='Seu nome' ref={usernameRef} className='join-input' />
+            <input 
+            type="text" 
+            placeholder='Seu nome' 
+            ref={usernameRef} 
+            className='join-input'
+            data-testid = "name-input"
+            />
 
         </div>
-        <button className='join-button' onClick={handleSubmit}> Entrar </button>
+        <button className='join-button' onClick={handleSubmit} data-testid="submit-button"> Entrar </button>
 
     </div>
   )
