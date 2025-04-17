@@ -18,7 +18,7 @@ const PokemonList =() =>{
         return<div>Loading...</div>;
     }
     if(error){
-        return<div>Error:{error.message}</div>;
+        return<div>Error:{error}</div>;
     }
     const extractIdFromUrl=(url)=>{
         const urlParts=url.split('/');
@@ -36,6 +36,8 @@ const PokemonList =() =>{
     }
     return(
         <div>
+            {loading && <div>Loading</div>}
+            {error && <div>Error:{error}</div>}
             <table>
                 <thead>
                     <tr>
@@ -44,7 +46,7 @@ const PokemonList =() =>{
                         <th>Selecionar</th>
                     </tr>
                 </thead>
-                <tbody data-testid="pokemons-list">
+                <tbody data-testid="pokemon-list">
                 {pokemons && pokemons.length> 0 && pokemons.map((pokemon)=>{
                     const id = extractIdFromUrl (pokemon.url); 
                     const isSelected = selectedPokemons.some((p)=> p.id ===id);
